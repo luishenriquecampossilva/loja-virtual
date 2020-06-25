@@ -26,6 +26,7 @@
   </div>
 
   <button type="submit" class="btn btn-danger"name = "user">Cadastrar</button>
+  <a  href="administracao.php" class="btn btn-primary">Sair</a>
  
 </form><div><div><div>
 <?php

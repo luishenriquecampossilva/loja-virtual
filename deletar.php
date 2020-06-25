@@ -8,7 +8,7 @@ require_once('controller.php'); ?>
                   <th scope="col">ID</th>
                   <th scope="col"> NOME</th>
                   <th scope="col">E-MAIL</th>
-                  <th scope="col">SENHA</th>
+                 
                   
                 </tr>
               </thead>
@@ -30,7 +30,7 @@ $sql = "SELECT * FROM usuarios";
              <td>{$dados['codigo']}</td>
              <td>{$dados['nome']}</td>
              <td>{$dados['email']}</td>
-             <td>{$dados['senha']}</td>
+           
              
          </tr>";
                 
@@ -51,12 +51,13 @@ $sql = "SELECT * FROM usuarios";
       
 <form action = "" method = "get">
   <div class="form-group">
-    <label for="exampleInputEmail1">Informe o id co usuario:</label>
+    <label for="exampleInputEmail1">Informe o codigo do  usuario:</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "id">
     
   </div>
   
+  
   <button type="submit" class="btn btn-danger" name = "delete">Excluir</button>
-  <button type="submit" class="btn btn-sucess" name = "">Cancelar</button>
+  <a  href="administracao.php" class="btn btn-primary">Sair</a>
 </form>
           </div>

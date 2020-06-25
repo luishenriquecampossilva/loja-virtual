@@ -88,8 +88,13 @@ if ($_GET['verificar'] == "cliente") {
                    cartao();
     }
     if(isset($_GET['delete'])){
-        excluirUsuario();
-}
+       
+            $conn = include_once(__DIR__.'/banco.php');
+            $codigo = $_GET['id'];
+            $sql = "DELETE FROM usuarios WHERE codigo = '$codigo'";
+    $conn->query($sql);
+        }
+
                        
 
 

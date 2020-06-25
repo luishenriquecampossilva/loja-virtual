@@ -71,12 +71,7 @@ $conn->query($sql);}
 
 
 
-function excluirUsuario(){
-    $conn = include_once(__DIR__.'/banco.php');
-    $codigo = $_GET['id'];
-    $sql = "DELETE FROM usuarios WHERE codigo = '$codigo'";
-return $conn->query($sql);
-}
+
 
 
 function cadastroUsuario(){
