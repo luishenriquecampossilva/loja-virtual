@@ -1,0 +1,19 @@
+create table produtos(
+codigoProduto int not null primary key auto_increment,
+categoria varchar(50) not null,
+marca varchar(40) not null,
+imagem varchar(100) not null,
+preco float not null,
+dtaCadastro date not null)
+
+create table usuarios(
+codigo int not null auto_increment,
+email varchar(100) not null,
+senha varchar(15) not null,
+nome  varchar(50) not null)
+
+create table clientes(
+codigo int not null primary key auto_increment,
+email varchar(100) not null,
+senha varchar(15) not null,
+nome varchar(50) not null)
