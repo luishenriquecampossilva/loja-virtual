@@ -1,8 +1,13 @@
 <?php
+
+
+
+
+
 #Login do usuario{
 function usuario(){
 
-    $conn = include_once(__DIR__.'/banco.php');
+    $conn = include_once('conexao/conexao.php');
     $sql = 'SELECT * FROM usuarios';
     $result = $conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
@@ -13,7 +18,7 @@ function usuario(){
 #login do cliente{
 function cliente(){
 
-    $conn = include_once(__DIR__.'/banco.php');
+    $conn = include_once('conexao/conexao.php');
     $sql = 'SELECT * FROM clientes';
     $result = $conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
@@ -21,10 +26,10 @@ function cliente(){
 }
 #}
 
-#login do cliente{
+#login do root{
     function administrador(){
 
-        $conn = include_once(__DIR__.'/banco.php');
+        $conn = include_once('conexao/conexao.php');
         $sql = 'SELECT * FROM administrador';
         $result = $conn->query($sql);
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -34,17 +39,18 @@ function cliente(){
 
 #cadastro do cliente{
     function cadastroCliente(){
-        $conn = include_once(__DIR__.'/banco.php');
+        $conn = include_once('conexao/conexao.php');
 
     if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['senha'])) {
         
         
         $email = $_GET['email'];
         $senha = $_GET['senha'];
+        $senhasegura = password_hash($senha,PASSWORD_DEFAULT);
         $nome = $_GET['nome'];
 
 
-        $sql = "INSERT INTO clientes (nome,senha,email) VALUES('$nome','$senha','$email')";
+        $sql = "INSERT INTO clientes (nome,senha,email) VALUES('$nome','$senhasegura','$email')";
 $conn->query($sql);}
     }
 

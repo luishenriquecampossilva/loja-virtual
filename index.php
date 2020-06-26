@@ -1,5 +1,5 @@
 <?php
-require_once('header.php');
+require_once('includes/header.php');
 require_once('controller.php');
 ?>
 <div class="container">
@@ -33,18 +33,17 @@ require_once('controller.php');
 
           <input type="submit" class="btn bg-danger text-light" name = "entrar" value="Entrar">
 
-            <!-- <div class = "col-12"> 
-  <a href="cadastroDeUsuarios.php"style="text-decoration:underline;color:black;font-style:italic">cadastrar <span style = "color:red">Usuario</span></a></div> -->
+
             <div>
         </form>
         <div class="row">
             <div class="col-12">
               <br>
-              <a href="cadastrarCliente.php" style="text-decoration:underline;color:black;font-style:italic">cadastrar Cliente</span></a></div>
+              <a href="cadastros/cadastrarCliente.php" style="text-decoration:underline;color:black;font-style:italic">cadastrar Cliente</span></a></div>
       </div>
     </div>
   </div>
 </div>
 <?php
-require_once('footer.php');
+require_once('includes/footer.php');
 ?>

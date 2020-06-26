@@ -1,19 +1,5 @@
 <?php
 include_once (__DIR__.'/crud.php');
-function seila(){
-    $conn = include_once(__DIR__.'/banco.php');
-
-     $sql = "SELECT * FROM usuarios";
-             $result = $conn->query($sql);
-             while($dados = mysqli_fetch_array($result)){
-              echo "   <tr> <td>{$dados['codigo']}</td><td>{$dados['nome']}</td><td>{$dados['email']}</td> <td>{$dados['senha']}</td></tr>";
-                
-               
-             
-              
-              }
-}
-
 if (isset($_GET['verificar'])) {
       if ($_GET['verificar'] == 'usuario') {
         $registros = usuario();
@@ -27,12 +13,28 @@ if (isset($_GET['verificar'])) {
                   
         };
         }
+
+
+
+
+
+
+
+
+
+
+
+
+#validação login
+
 if ($_GET['verificar'] == "cliente") {
     $registros = cliente();
 
-
+// $senhasegura = password_hash($senha,PASSWORD_DEFAULT);
+$senha = $_GET['senha'];
+// var_dump()
     foreach ($registros as $registro){
-        if($registro['email']==$_GET['email'] && $registro['senha']==$_GET['senha']){
+        if(password_verify($senha,$registro['senha'])){
         header('location:vendas.php');
                 
                 }
@@ -43,21 +45,16 @@ if ($_GET['verificar'] == "cliente") {
         }
 
 
-
+#login root{
         if ($_GET['verificar'] == "admin") {
             $registros = administrador();
-        
-        
             foreach ($registros as $registro){
                 if($registro['email']==$_GET['email'] && $registro['senha']==$_GET['senha']){
-                header('location:administracao.php');
-                        
-                        }
-                      
-            };
+                header('location:root/administracao.php'); }};
                 
                 
                 }
+#}
     }
 
 

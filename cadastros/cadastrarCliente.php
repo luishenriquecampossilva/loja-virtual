@@ -1,7 +1,7 @@
 
    <?php
-   require_once('header.php');
-   require_once('controller.php');
+   require_once('../includes/header.php');
+   require_once('../controller.php');
 ?>
 <div class = "container">
   <div class = "row">
@@ -29,5 +29,5 @@
  
 </form><div><div><div>
 <?php
-   require_once('footer.php');
+   require_once('../includes/footer.php');
    ?>
