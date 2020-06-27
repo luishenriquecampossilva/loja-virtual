@@ -1,6 +1,6 @@
 
    <?php
-   require_once('header.php');
+   require_once('../includes/header.php');
 ?>
 
 <div class = "container">
@@ -35,5 +35,5 @@
  
 </form><div></div>
 <?php
-   require_once('footer.php');
+   require_once('../includes/footer.php');
    ?>

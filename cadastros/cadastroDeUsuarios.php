@@ -1,7 +1,7 @@
 
    <?php
-   require_once('header.php');
-   require_once('controller.php');
+   require_once('../includes/header.php');
+   require_once('../controller.php');
 ?>
 <div class = "container">
   <div class = "row">
@@ -26,9 +26,9 @@
   </div>
 
   <button type="submit" class="btn btn-danger"name = "user">Cadastrar</button>
-  <a  href="administracao.php" class="btn btn-primary">Sair</a>
+  <a  href="../root/administracao.php" class="btn btn-primary">Sair</a>
  
 </form><div><div><div>
 <?php
-   require_once('footer.php');
+   require_once('../includes/footer.php');
    ?>

@@ -11,7 +11,7 @@
     <img src="../img/group.png" class="card-img-top " alt="...">
     <div class="card-body">
       <h5 class="card-title">Usuarios</h5>
-      <a href="cadastroDeUsuarios.php" class="btn btn-success">Adicionar</a>
+      <a href="../cadastros/cadastroDeUsuarios.php" class="btn btn-success">Adicionar</a>
       <a href="alterar.php" class="btn btn-warning">Alterar</a>
       <a href="deletar.php" class="btn btn-danger text-white">Excluir</a>
       <p class="card-text"></p>

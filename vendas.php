@@ -1,6 +1,6 @@
 
    <?php
-   require_once('header.php');
+   require_once('includes/header.php');
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -346,5 +346,5 @@ if($cont == 2){echo "
         </div>
 
 <?php
-   require_once('footer.php');
+   require_once('includes/footer.php');
    ?>

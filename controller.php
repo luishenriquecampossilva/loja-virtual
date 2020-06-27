@@ -1,104 +1,115 @@
 <?php
-include_once (__DIR__.'/crud.php');
+#validação login do usuario
+include_once(__DIR__ . '/crud.php');
 if (isset($_GET['verificar'])) {
-      if ($_GET['verificar'] == 'usuario') {
+    if ($_GET['verificar'] == 'usuario') {
         $registros = usuario();
-
-
-        foreach ($registros as $registro){
-            if($registro['email']==$_GET['email'] && $registro['senha']==$_GET['senha']){
-            header('location:produtos.php');
-                    
-                    }
-                  
+        $senha = $_GET['senha'];
+        $email = $_GET['email'];
+        foreach ($registros as $registro) {
+            if ($registro['email'] == $email && password_verify($senha, $registro['senha']) == true) {
+                header('location:cadastros/produtos.php');
+            }
         };
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-#validação login
-
-if ($_GET['verificar'] == "cliente") {
-    $registros = cliente();
-
-// $senhasegura = password_hash($senha,PASSWORD_DEFAULT);
-$senha = $_GET['senha'];
-// var_dump()
-    foreach ($registros as $registro){
-        if(password_verify($senha,$registro['senha'])){
-        header('location:vendas.php');
-                
-                }
-              
-    };
-        
-        
-        }
-
-
-#login root{
-        if ($_GET['verificar'] == "admin") {
-            $registros = administrador();
-            foreach ($registros as $registro){
-                if($registro['email']==$_GET['email'] && $registro['senha']==$_GET['senha']){
-                header('location:root/administracao.php'); }};
-                
-                
-                }
-#}
     }
+    #validação login cliente
 
-
-    if(isset($_GET['comprador'])){
-        cadastroCliente();
-        header("location:produtos.php");
-    }
-
-
-
-
-
-
-
-    if(isset($_GET['user'])){
-        cadastroUsuario();
-        
-    }
-    if(isset($_GET['produto'])){
-        cadastroProduto();
-    }
-    ?>
-    <div class = "container">
-             <div class = "row"style = "margin-top:40px">
-    
-             <?php     
-               if(isset($_GET['busca'])){
-                   cartao();
-    }
-    if(isset($_GET['delete'])){
+    if ($_GET['verificar'] == "cliente") {
+        $registros = cliente();
+        $senha = $_GET['senha'];
+        $email = $_GET['email'];
        
-            $conn = include_once(__DIR__.'/banco.php');
+        foreach ($registros as $registro) {
+            if ($registro['email'] == $email && password_verify($senha, $registro['senha']) == true) {
+                header('location:vendas.php');
+            }
+        };
+    }
+
+
+    #login root{
+    if ($_GET['verificar'] == "admin") {
+        $registros = administrador();
+        foreach ($registros as $registro) {
+            if ($registro['email'] == $_GET['email'] && $registro['senha'] == $_GET['senha']) {
+                header('location:root/administracao.php');
+            }
+        };
+    }
+    #}
+}
+
+
+if (isset($_GET['comprador'])) {
+    cadastroCliente();
+    header("location:produtos.php");
+}
+if (isset($_GET['user'])) {
+    cadastroUsuario($_GET);
+}
+if (isset($_GET['produto'])) {
+    cadastroProduto();
+}
+
+if(isset($_GET['busca'])){
+   sistemaBusca();
+    
+}
+else{
+sistemaExibicao();
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+<div class="container">
+    <div class="row" style="margin-top:40px">
+
+        <?php
+        if (isset($_GET['busca'])) {
+            cartao();
+        }
+        if (isset($_GET['delete'])) {
+
+            $conn = include_once(__DIR__ . '/banco.php');
             $codigo = $_GET['id'];
             $sql = "DELETE FROM usuarios WHERE codigo = '$codigo'";
-    $conn->query($sql);
+            $conn->query($sql);
         }
 
-                       
 
 
-                       ?>
-     
 
-     
-             </div>
-             </div>
+        ?>
 
+
+
+    </div>
+</div>
