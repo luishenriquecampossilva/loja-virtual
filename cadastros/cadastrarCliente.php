@@ -26,6 +26,8 @@
   </div>
 
   <button type="submit" class="btn btn-danger"name = "comprador">Cadastrar</button>
+  <a href="../index.php" class="btn btn-primary stretched-link">Voltar</a>
+
  
 </form><div><div><div>
 <?php

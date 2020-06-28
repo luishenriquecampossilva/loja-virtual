@@ -1,4 +1,14 @@
 <?php
+
+#Select usuarios
+
+function selectUser(){
+
+}
+
+
+
+
 #validação login do usuario
 include_once(__DIR__ . '/crud.php');
 if (isset($_GET['verificar'])) {
@@ -72,6 +82,8 @@ $codigo = $registro['codigo'];
       update($_GET);
   }
 
+  
+
 
 
 
@@ -105,9 +117,7 @@ $codigo = $registro['codigo'];
     <div class="row" style="margin-top:40px">
 
         <?php
-        if (isset($_GET['busca'])) {
-            cartao();
-        }
+      
         if (isset($_GET['delete'])) {
 
             $conn = include_once('conexao/conexao.php');

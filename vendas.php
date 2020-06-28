@@ -1,6 +1,8 @@
 
    <?php
    require_once('includes/header.php');
+   require_once('conexao/conexao.php');
+  
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,66 +38,17 @@
   </div>
 </nav>
 
-<?php
-                   $server = 'localhost';
-                   $user = 'root';
-                   $password = '';
-                   $bd = 'itatec';
-               
-                   $conn = new mysqli($server,$user,$password,$bd);
-               
-        ?>
+<!-- Finalizados --^ -->
 
-
- 
- 
-
-  <!-- --->
+<!-- Carrossel--->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner"style = "height:400px;">
-
-
-
-
-
 <div class = "container">
+
 <?php
-               $sql = "SELECT * FROM produtos ORDER BY dtaCadastro desc";
-               $result = $conn->query($sql);
-               $cont = 0;
-               while($dados = mysqli_fetch_array($result)){
-$cont++;
 
-if($cont == 1){
-
-
-
-
-
-   echo " <div class='carousel-item active'>
-      <img class='d-block w-100 img-fluid' style='width: 18rem;'src='img/".$dados['imagem']."' alt='First slide'>
-      <div class='carousel-caption d-none d-md-block'>
-      <h5 style = 'color:black;padding-left:600px;margin-bottom:50px' >".$dados['marca']."</h5>
-      <p style = 'color:gray;padding-left:600px;margin-bottom:30px'>Por apenas: R$ ".$dados['preco']."</p>
-      
-    </div>
-    </div>";}
-
-if($cont == 2){echo "
-    <div class='carousel-item'>
-      <img class='d-block w-100 img-fluid' src='img/".$dados['imagem']."' alt='Second slide'>
-      <div class='carousel-caption d-none d-md-block'>
-      <h5 style = 'color:black;padding-left:600px;margin-bottom:50px' >".$dados['marca']."</h5>
-      <p style = 'color:gray;padding-left:600px;margin-bottom:30px'>Por apenas: R$ ".$dados['preco']."</p>
-      
-    </div>
-    </div>"
-  ;}}
- 
+ include_once('selecioneProdutos.php');
 ?>
-
-
-
 
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -110,87 +63,10 @@ if($cont == 2){echo "
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Sistema de Pesquisa -->
         <div class = "container">
         <div class = "row"style = "margin-top:40px">
-        <?php    
-        if(isset($_GET['busca'])){
-          $busca = $_GET['especifico'];
-
-          $sql ="SELECT marca,preco,imagem FROM produtos WHERE marca  LIKE '$busca%' ORDER BY dtaCadastro DESC ";
-
-          $result = $conn->query($sql);
-          while($dados = mysqli_fetch_array($result)){
-  
-      
-           
-          echo "  
-        <div class = 'col-lg-4' style = 'margin-top:30px;'>
-          <div class='card' style='width: 18rem;'>
-<img class='card-img-top' src='img/".$dados['imagem']."' alt='Card image cap'>
-<div class='card-body'>
-<p class='card-text'>Marca: ". $dados['marca']."</p>
-<p class='card-text'>Preço: R$". $dados['preco']."</p>
-</div>
-</div>
-</div>";
-             
-            
-          
-           
-           }
-
-
-
-
-
-          }
-          else{
-            $sql = "SELECT * FROM produtos ORDER BY dtaCadastro DESC";
-             $result = $conn->query($sql);
-             while($dados = mysqli_fetch_array($result)){
-     
-         
-              
-             echo "  
-           <div class = 'col-lg-4' style = 'margin-top:30px;'>
-             <div class='card' style='width: 18rem;'>
-<img class='card-img-top' src='img/".$dados[3]."' alt='Card image cap'>
-<div class='card-body'>
- <p class='card-text'>Marca: ". $dados['marca']."</p>
- <p class='card-text'>Preço: R$ ". $dados['preco']."</p>
- <p class='card-text'>Data: ". $dados['dtaCadastro']."</p>
-</div>
-</div>
-</div>";
-                
-               
-             
-              
-              }}
-        
-       
-                  
-                  ?>
+        <?php require_once('teste.php') ?>
 
         </div>
         </div>

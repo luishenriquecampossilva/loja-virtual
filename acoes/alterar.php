@@ -19,21 +19,20 @@ require_once('../conexao/conexao.php');
               <tbody>
 
 <?php
+        $server = 'localhost';
+        $user = 'root';
+        $password = '';
+        $bd = 'itatec';
+    
+       $conn = new mysqli($server,$user,$password,$bd);
 
-$server = 'localhost';
-$user = 'root';
-$password = '';
-$bd = 'itatec';
-
-$conn = new mysqli($server,$user,$password,$bd);
-
-$sql = "SELECT * FROM usuarios";
+       $sql = "SELECT * FROM usuarios";
              $result = $conn->query($sql);
              while($dados = mysqli_fetch_array($result)){
      
          
               
-             echo "  
+         echo "  
 
 
              <tr>
@@ -49,10 +48,7 @@ $sql = "SELECT * FROM usuarios";
              
               
               }
-        
-       
-                  
-                  ?>
+    ?>
 
 </tbody>
             </table>
@@ -106,11 +102,7 @@ $sql = "SELECT * FROM usuarios";
 
 
 
-          
-   <?php
-   require_once('../includes/header.php');
-   require_once('../controller.php');
-?>
+
 
 <?php
    require_once('../includes/footer.php');

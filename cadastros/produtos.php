@@ -1,13 +1,14 @@
 
    <?php
    require_once('../includes/header.php');
+   require_once('../controller.php');
 ?>
 
 <div class = "container">
   <div class = "row">
   <div class = "col-lg-12 col-md-12 col-sm-12">
 <p style = "font-size:40px;">Cadastro de Produtos</p><div>
-   <form action = "controller.php" method = "get"enctype="multipart/form-data">
+   <form action = "" method = "get"enctype="multipart/form-data">
    <div class="form-group">
     <label for="exampleInputEmail1">Descricao</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Marca"name = "descricao">
@@ -32,6 +33,7 @@
 
 
   <button type="submit" class="btn btn-danger"name = "produto">Cadastrar</button>
+  <a href="../index.php" class="btn btn-primary stretched-link">Voltar</a>
  
 </form><div></div>
 <?php

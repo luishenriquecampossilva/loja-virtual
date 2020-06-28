@@ -5,6 +5,9 @@
 ?>
 <div class = "container">
   <div class = "row"style = "margin-top:60px">
+
+
+
 <div class="card-deck">
   <div class = "col-lg-4 col-md-6 col-sm-12">
   <div class="card">
@@ -20,6 +23,11 @@
       <small class="text-muted">Ultima atualização a 3 minutos.</small>
     </div>
   </div></div>
+
+
+
+
+
   <div class = "col-lg-4 col-md-6 col-sm-12">
 
   <div class="card">
@@ -35,6 +43,11 @@
       <small class="text-muted">Ultima atualização a 3 minutos.</small>
     </div>
   </div></div>
+
+
+
+
+  
   <div class = "col-lg-4 col-md-6 col-sm-12">
 
   <div class="card">
