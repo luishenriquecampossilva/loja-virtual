@@ -51,14 +51,26 @@ if (isset($_GET['produto'])) {
     cadastroProduto();
 }
 
-if(isset($_GET['busca'])){
-   sistemaBusca();
+#alterar usuario{
+if (isset($_GET['prosseguir'])) {
+    
+    $registros = varredura();
+    foreach ($registros as $registro) {
+        
+     };
+
+$nome = $registro['nome'];
+$email = $registro['email'];
+$codigo = $registro['codigo'];
+
     
 }
-else{
-sistemaExibicao();
-}
-  
+  #}
+
+  if(isset($_GET['update'])){
+      
+      update($_GET);
+  }
 
 
 
@@ -98,7 +110,7 @@ sistemaExibicao();
         }
         if (isset($_GET['delete'])) {
 
-            $conn = include_once(__DIR__ . '/banco.php');
+            $conn = include_once('conexao/conexao.php');
             $codigo = $_GET['id'];
             $sql = "DELETE FROM usuarios WHERE codigo = '$codigo'";
             $conn->query($sql);

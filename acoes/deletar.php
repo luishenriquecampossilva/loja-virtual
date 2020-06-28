@@ -1,5 +1,5 @@
-<?PHP require_once('header.php');
-require_once('controller.php'); ?>
+<?PHP require_once('../includes/header.php');
+require_once('../controller.php'); ?>
 <div class = "container">
 <div style="margin: 10vh auto">
             <table border="1" style="width: 100%;" class="table table-dark">
@@ -15,7 +15,7 @@ require_once('controller.php'); ?>
               <tbody>
 
 <?php
-include_once('banco.php');
+include_once('../conexao/conexao.php');
 
 $sql = "SELECT * FROM usuarios";
              $result = $conn->query($sql);
@@ -58,6 +58,6 @@ $sql = "SELECT * FROM usuarios";
   
   
   <button type="submit" class="btn btn-danger" name = "delete">Excluir</button>
-  <a  href="administracao.php" class="btn btn-primary">Sair</a>
+  <a  href="../root/administracao.php" class="btn btn-primary">Sair</a>
 </form>
           </div>

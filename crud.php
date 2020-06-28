@@ -71,6 +71,39 @@ function cadastroUsuario()
     return $conn->query($sql);
 }
 #}
+function varredura(){
+    
+   
+        require_once('conexao/conexao.php');
+    $id = $_GET['codigo'];
+    $sql = "SELECT * FROM usuarios WHERE codigo = '$id'";
+    $result = $conn->query($sql);
+   return $result->fetch_all(MYSQLI_ASSOC);
+    
+}
+
+function update(){
+    require_once('conexao/conexao.php');
+
+   
+    $nome = $_GET['nome'];
+    $email = $_GET['email'];
+    $id = $_GET['digito'];
+    $sql = "UPDATE  usuarios SET email = '$email' WHERE codigo = '$id'";
+    return $conn->query($sql);
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // function sistemaBusca(){
 //     require_once('conexao/conexao.php');

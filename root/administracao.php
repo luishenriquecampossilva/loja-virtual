@@ -12,8 +12,8 @@
     <div class="card-body">
       <h5 class="card-title">Usuarios</h5>
       <a href="../cadastros/cadastroDeUsuarios.php" class="btn btn-success">Adicionar</a>
-      <a href="alterar.php" class="btn btn-warning">Alterar</a>
-      <a href="deletar.php" class="btn btn-danger text-white">Excluir</a>
+      <a href="../acoes/alterar.php" class="btn btn-warning">Alterar</a>
+      <a href="../acoes/deletar.php" class="btn btn-danger text-white">Excluir</a>
       <p class="card-text"></p>
     </div>
     <div class="card-footer">

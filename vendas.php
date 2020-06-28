@@ -301,7 +301,7 @@ if($cont == 2){echo "
 
 
 
-<div class = "container">
+<!-- <div class = "container">
         <h1>Comentarios</h1>
 
 <form action="controller.php" method="get" style = "margin:auto">
@@ -315,7 +315,7 @@ if($cont == 2){echo "
 
 <div class = "container">
         
-        <?php    
+         
       
          
 
@@ -340,10 +340,9 @@ if($cont == 2){echo "
         
 
                   
-                  ?>
-
+                  
         
-        </div>
+        </div> -->
 
 <?php
    require_once('includes/footer.php');

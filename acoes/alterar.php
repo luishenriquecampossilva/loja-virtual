@@ -1,5 +1,8 @@
-<?PHP require_once('header.php');
-require_once('controller.php'); ?>
+<?PHP 
+require_once('../includes/header.php');
+require_once('../controller.php');
+require_once('../conexao/conexao.php');
+ ?>
 <div class = "container">
 <div style="margin: 10vh auto">
             <table border="1" style="width: 100%;" class="table table-dark">
@@ -16,7 +19,13 @@ require_once('controller.php'); ?>
               <tbody>
 
 <?php
-include_once('banco.php');
+
+$server = 'localhost';
+$user = 'root';
+$password = '';
+$bd = 'itatec';
+
+$conn = new mysqli($server,$user,$password,$bd);
 
 $sql = "SELECT * FROM usuarios";
              $result = $conn->query($sql);
@@ -54,12 +63,43 @@ $sql = "SELECT * FROM usuarios";
 <form action = "" method = "get">
   <div class="form-group">
     <label for="exampleInputEmail1">Informe o codigo do  usuario:</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "id">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "codigo">
     
   </div>
   
+
+  <button type="submit" class="btn btn-success" name = "prosseguir">Prosseguir</button><br><br>
   
-  <button type="submit" class="btn btn-success" name = "prosseguir">Prosseguir</button>
+
+
+  <div class="form-group">
+
+<label for="exampleInputEmail1">CODIGO</label>
+<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome"name = "digito"
+ value ="<?php echo $codigo ?? 0; ?>">
+
+</div>
+   <div class="form-group">
+
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome"name = "nome"
+     value ="<?php echo $nome ?? 0; ?>">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Email"name = "email"value = "<?php echo $email ?? 0; ?>">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Senha</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"name = "senha">
+  </div>
+
+  <button type="submit" class="btn btn-danger"name = "update">Alterar</button>
+  <a  href="../root/administracao.php" class="btn btn-primary">Sair</a>
+ 
+          
   
 </form>
           </div>
@@ -68,37 +108,10 @@ $sql = "SELECT * FROM usuarios";
 
           
    <?php
-   require_once('header.php');
-   require_once('controller.php');
+   require_once('../includes/header.php');
+   require_once('../controller.php');
 ?>
-<div class = "container">
-  <div class = "row">
-    <div class = "col-lg-12 col-md-12 col-sm-12">
-    <p style = "font-size:40px;">Aterando usuarios</p>
-    </div>
-    <div class = "col-lg-12 col-md-12 col-sm-12">
-   <form action = "" method = "get">
-   <div class="form-group">
 
-    <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome"name = "nome"
-     value ="">
-
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Email"name = "email">
-
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Senha</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"name = "senha">
-  </div>
-
-  <button type="submit" class="btn btn-danger"name = "user">Alterar</button>
-  <a  href="administracao.php" class="btn btn-primary">Sair</a>
- 
-</form><div><div><div>
 <?php
-   require_once('footer.php');
+   require_once('../includes/footer.php');
    ?>
