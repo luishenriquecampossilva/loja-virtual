@@ -77,11 +77,54 @@ $codigo = $registro['codigo'];
 }
   #}
 
+  if (isset($_GET['prosseguir2'])) {
+    
+    $registros = varredura2();
+    foreach ($registros as $registro) {
+        
+     };
+
+$nome = $registro['nome'];
+$email = $registro['email'];
+$codigo = $registro['codigo'];
+
+    
+}
+
+if (isset($_GET['prosseguir3'])) {
+    
+    $registros = varredura3();
+    foreach ($registros as $registro) {
+        
+     };
+
+$marca = $registro['marca'];
+$preco = $registro['preco'];
+$data = $registro['dtaCadastro'];
+$codigo = $registro['codigoProduto'];
+
+    
+}
+
   if(isset($_GET['update'])){
       
       update($_GET);
   }
+  if(isset($_GET['updatecliente'])){
+      
+    updateCliente($_GET);
+}
 
+if(isset($_GET['updateproduto'])){
+      
+    updateProduto($_GET);
+}
+
+  #comentarios
+
+  if(isset($_GET['publicar'])){
+      publicar();
+  }
   
 
 
@@ -125,7 +168,13 @@ $codigo = $registro['codigo'];
             $sql = "DELETE FROM usuarios WHERE codigo = '$codigo'";
             $conn->query($sql);
         }
+        if (isset($_GET['deletecliente'])) {
 
+            $conn = include_once('conexao/conexao.php');
+            $codigo = $_GET['id'];
+            $sql = "DELETE FROM clientes WHERE codigo = '$codigo'";
+            $conn->query($sql);
+        }
 
 
 

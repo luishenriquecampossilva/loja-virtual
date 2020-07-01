@@ -94,9 +94,53 @@ function update(){
 
 }
 
+function updateCliente(){
+    require_once('conexao/conexao.php');
+
+   
+    $nome = $_GET['nome'];
+    $email = $_GET['email'];
+    $id = $_GET['digito'];
+    $sql = "UPDATE  clientes SET email = '$email',nome = '$nome' WHERE codigo = '$id'";
+    return $conn->query($sql);
+
+}
+function updateProduto(){
+    require_once('conexao/conexao.php');
+
+   
+    $marca= $_GET['marca'];
+    $preco = $_GET['preco'];
+    $data = $_GET['data'];
+    
+    $id = $_GET['digito'];
+    $sql = "UPDATE  produtos SET marca = '$marca',dtaCadastro = '$data',preco = '$preco' WHERE codigoProduto = '$id'";
+    return $conn->query($sql);
+
+}
 
 
+function varredura2(){
+    
+   
+    require_once('conexao/conexao.php');
+$id = $_GET['codigo'];
+$sql = "SELECT * FROM clientes WHERE codigo = '$id'";
+$result = $conn->query($sql);
+return $result->fetch_all(MYSQLI_ASSOC);
 
+}
+
+function varredura3(){
+    
+   
+    require_once('conexao/conexao.php');
+$id = $_GET['codigo'];
+$sql = "SELECT * FROM produtos WHERE codigoProduto = '$id'";
+$result = $conn->query($sql);
+return $result->fetch_all(MYSQLI_ASSOC);
+
+}
 
 
 
@@ -173,18 +217,15 @@ function update(){
 
 
 
-// function publicar(){
-//     require_once('banco.php');
+function publicar(){
+    $conn = require_once('conexao/conexao.php');
 
-//     $comentario = $_GET['comentario'];
+    $comentario = $_GET['comentario'];
+$sql = "INSERT INTO comentarios (comentarios) VALUES('$comentario')";
+ $conn->query($sql);
+ return header('location:vendas.php');
 
-
-
-// $sql = "INSERT INTO comentarios (comentarios) VALUES('$comentario')";
-//  $conn->query($sql);
-//  return header('location:vendas.php');
-
-// }
+}
 
 
 

@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Dispositivos</a>
@@ -29,7 +29,9 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">jogos</a>
         </div>
-     
+        <li class="nav-item active">
+        <a class="nav-link" href="index.php">Logoff <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0"action ="" method="get">
       <input class="form-control mr-sm-2" type="search" placeholder="Digite aqui" aria-label="Search"name = "especifico">
@@ -72,117 +74,16 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class = "container">
-        <h1>Comentarios</h1>
+ <div class = "container" style = "margin-top:30px;">
+        
 
 <form action="controller.php" method="get" style = "margin:auto">
 
-<textarea type="text" id="w3review" name="comentario" rows="4" cols="100" >
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">Area de comentarios:</label>
+    
+  </div>
+<textarea type="text"  class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario" rows="4" cols="100" >
  
 </textarea>
   <br><br>
@@ -192,21 +93,28 @@
 <div class = "container">
         
          
-      
-         
+<ul class="list-unstyled">
+         <?php
 
           $sql ="SELECT * FROM comentarios";
 
           $result = $conn->query($sql);
           while($dados = mysqli_fetch_array($result)){
   
-      
+     
            
           echo "  
-       
+          <br>
+        
+          <li class='media'>
+            <img class='mr-3' src='...' alt='Autor'>
+            <div class='media-body'>
+              <h5 class='mt-0 mb-1'>Nome do autor</h5>
+              ".$dados['comentarios']."
+            </div>
+          </li>";
 
 
-<div class='card-text'>". $dados['comentarios']."<a href='vendas.php?id=".$dados['id']."'>Excluir</a></div>";
              
           
           
@@ -215,10 +123,10 @@
 
         
 
-                  
+                  ?>
                   
         
-        </div> -->
+        </div> 
 
 <?php
    require_once('includes/footer.php');
