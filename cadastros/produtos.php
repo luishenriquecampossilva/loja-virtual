@@ -2,6 +2,13 @@
    <?php
    require_once('../includes/header.php');
    require_once('../controller.php');
+  
+   session_start();
+
+   if(!isset($_SESSION['usuario'])){
+    header('location:../index.php');
+
+   }
 ?>
 
 <div class = "container">
@@ -33,7 +40,7 @@
 
 
   <button type="submit" class="btn btn-danger"name = "produto">Cadastrar</button>
-  <a href="../index.php" class="btn btn-primary stretched-link">Voltar</a>
+  <a href="destruir.php" class="btn btn-primary stretched-link">Sair</a>
  
 </form><div></div>
 <?php

@@ -1,7 +1,11 @@
 
    <?php
    require_once('../includes/header.php');
-   
+   session_start();
+   if(!isset($_SESSION['admin'])){
+    header('location:../index.php');
+
+   }
 ?>
 <div class = "container">
   <div class = "row"style = "margin-top:60px">
@@ -69,7 +73,7 @@
 </div>
 <br>
   <br>
-  <a  href="../index.php" class="btn btn-primary">Sair</a>
+  <a  href="../cadastros/destruir.php" class="btn btn-primary">Sair</a>
 <?php
    require_once('../includes/footer.php');
    ?>

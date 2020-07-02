@@ -2,7 +2,12 @@
    <?php
    require_once('includes/header.php');
    require_once('conexao/conexao.php');
-  
+   session_start();
+
+   if(!isset($_SESSION['clientes'])){
+    header('location:index.php');
+
+   }
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,7 +35,7 @@
           <a class="dropdown-item" href="#">jogos</a>
         </div>
         <li class="nav-item active">
-        <a class="nav-link" href="index.php">Logoff <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastros/destruir.php">Logoff <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0"action ="" method="get">

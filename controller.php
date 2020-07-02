@@ -11,13 +11,18 @@ function selectUser(){
 
 #validação login do usuario
 include_once(__DIR__ . '/crud.php');
+
+session_start();
+
 if (isset($_GET['verificar'])) {
     if ($_GET['verificar'] == 'usuario') {
+       
         $registros = usuario();
         $senha = $_GET['senha'];
         $email = $_GET['email'];
         foreach ($registros as $registro) {
             if ($registro['email'] == $email && password_verify($senha, $registro['senha']) == true) {
+                $_SESSION['usuario']= $_GET['email'];
                 header('location:cadastros/produtos.php');
             }
         };
@@ -25,12 +30,14 @@ if (isset($_GET['verificar'])) {
     #validação login cliente
 
     if ($_GET['verificar'] == "cliente") {
+        
         $registros = cliente();
         $senha = $_GET['senha'];
         $email = $_GET['email'];
        
         foreach ($registros as $registro) {
             if ($registro['email'] == $email && password_verify($senha, $registro['senha']) == true) {
+                $_SESSION['clientes'] = $_GET['email'];
                 header('location:vendas.php');
             }
         };
@@ -42,6 +49,8 @@ if (isset($_GET['verificar'])) {
         $registros = administrador();
         foreach ($registros as $registro) {
             if ($registro['email'] == $_GET['email'] && $registro['senha'] == $_GET['senha']) {
+                $_SESSION['admin']= $_GET['email'];
+
                 header('location:root/administracao.php');
             }
         };
