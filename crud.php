@@ -1,5 +1,5 @@
 <?php
-#Login do usuario{
+
 function usuario()
 {
 
@@ -8,9 +8,7 @@ function usuario()
     $result = $conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
-#}
 
-#login do cliente{
 function cliente()
 {
 
@@ -19,9 +17,7 @@ function cliente()
     $result = $conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
-#}
 
-#login do root{
 function administrador()
 {
 
@@ -30,9 +26,7 @@ function administrador()
     $result = $conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
-#}
 
-#cadastro do cliente{
 function cadastroCliente()
 {
     $conn = include_once('conexao/conexao.php');
@@ -51,10 +45,7 @@ function cadastroCliente()
     }
 }
 
-#}
 
-
-#cadastro do usuario{
 function cadastroUsuario()
 {
     require_once('conexao/conexao.php');
@@ -70,7 +61,7 @@ function cadastroUsuario()
     $sql = "INSERT INTO usuarios (nome,senha,email) VALUES('$nome','$senhasegura','$email')";
     return $conn->query($sql);
 }
-#}
+
 function varredura(){
     
    
@@ -217,15 +208,6 @@ return $result->fetch_all(MYSQLI_ASSOC);
 
 
 
-function publicar(){
-    $conn = require_once('conexao/conexao.php');
-
-    $comentario = $_GET['comentario'];
-$sql = "INSERT INTO comentarios (comentarios) VALUES('$comentario')";
- $conn->query($sql);
- return header('location:vendas.php');
-
-}
 
 
 

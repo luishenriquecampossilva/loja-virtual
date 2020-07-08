@@ -1,15 +1,9 @@
 <?php
 
-#Select usuarios
-
-function selectUser(){
-
-}
 
 
 
 
-#validação login do usuario
 include_once(__DIR__ . '/crud.php');
 
 session_start();
@@ -27,7 +21,7 @@ if (isset($_GET['verificar'])) {
             }
         };
     }
-    #validação login cliente
+    
 
     if ($_GET['verificar'] == "cliente") {
         
@@ -44,7 +38,7 @@ if (isset($_GET['verificar'])) {
     }
 
 
-    #login root{
+   
     if ($_GET['verificar'] == "admin") {
         $registros = administrador();
         foreach ($registros as $registro) {
@@ -55,7 +49,7 @@ if (isset($_GET['verificar'])) {
             }
         };
     }
-    #}
+    
 }
 
 
@@ -70,7 +64,7 @@ if (isset($_GET['produto'])) {
     cadastroProduto();
 }
 
-#alterar usuario{
+
 if (isset($_GET['prosseguir'])) {
     
     $registros = varredura();
@@ -84,7 +78,6 @@ $codigo = $registro['codigo'];
 
     
 }
-  #}
 
   if (isset($_GET['prosseguir2'])) {
     
@@ -129,11 +122,7 @@ if(isset($_GET['updateproduto'])){
     updateProduto($_GET);
 }
 
-  #comentarios
 
-  if(isset($_GET['publicar'])){
-      publicar();
-  }
   
 
 

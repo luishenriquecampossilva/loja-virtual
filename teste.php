@@ -48,7 +48,7 @@ if(isset($_GET['busca'])){
 <p class='card-text'>Marca: ". $dados['marca']."</p>
 <p class='card-text'>Preço: R$ ". $dados['preco']."</p>
 <p class='card-text'>Data: ". $dados['dtaCadastro']."</p>
-<a  href='' class='btn btn-info'>Comprar</a>
+
 </div>
 </div>
 </div>";

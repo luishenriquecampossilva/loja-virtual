@@ -32,15 +32,15 @@
           <a class="dropdown-item" href="#">Capinhas</a>
           <a class="dropdown-item" href="#">Peliculas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">jogos</a>
+          <a class="dropdown-item" href="#">jogos</a> 
         </div>
         <li class="nav-item active">
-        <a class="nav-link" href="cadastros/destruir.php">Logoff <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cadastros/destruir.php">Sair <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0"action ="" method="get">
-      <input class="form-control mr-sm-2" type="search" placeholder="Digite aqui" aria-label="Search"name = "especifico">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"name = "busca">Pesquisar</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Nome do PRO" aria-label="Search"name = "especifico">
+      <button class="btn btn-danger" type="submit"name = "busca">Pesquisar</button>
     </form>
   </div>
 </nav>
@@ -82,56 +82,7 @@
  <div class = "container" style = "margin-top:30px;">
         
 
-<form action="controller.php" method="get" style = "margin:auto">
 
-<div class="form-group">
-    <label for="exampleFormControlTextarea1">Area de comentarios:</label>
-    
-  </div>
-<textarea type="text"  class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario" rows="4" cols="100" >
- 
-</textarea>
-  <br><br>
-  <input type="submit" name = "publicar" value="publicar">
-</form></div>
-
-<div class = "container">
-        
-         
-<ul class="list-unstyled">
-         <?php
-
-          $sql ="SELECT * FROM comentarios";
-
-          $result = $conn->query($sql);
-          while($dados = mysqli_fetch_array($result)){
-  
-     
-           
-          echo "  
-          <br>
-        
-          <li class='media'>
-            <img class='mr-3' src='...' alt='Autor'>
-            <div class='media-body'>
-              <h5 class='mt-0 mb-1'>Nome do autor</h5>
-              ".$dados['comentarios']."
-            </div>
-          </li>";
-
-
-             
-          
-          
-           
-           }
-
-        
-
-                  ?>
-                  
-        
-        </div> 
 
 <?php
    require_once('includes/footer.php');
